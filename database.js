@@ -150,6 +150,127 @@ var albums =
             "i was just thinking",
             "alright"
         ]
-    }
+    },
+    {
+        "title": "After Hours" , 
+        "author": "The Weeknd" ,
+        "cover": "/img/afterhours.png" ,
+        "date": "20/03/2020" ,
+        "tracks": [
+               "Blinding Lights",
+               "Snowchild",
+               "Too Late",
+               "Alone Again",
+               "Save Your Tears",
+               "Scared to Live",
+               "In Your Eyes",
+               "Until I Bleed Out",
+               "Heartless",
+               "Repeat After me",
+               "Faith",
+               "Escape From LA",
+               "Hardest to Love",
+               "After Hours"
+            ]
+      } ,
+      {
+        "title": "Anti" , 
+        "author": "Rihanna" ,
+        "cover": "/img/anti.png" ,
+        "date": "28/01/2016" ,
+        "tracks": [
+               "Consideration",
+               "Work",
+               "Sex With Me [explicit]",
+               "Never Ending",
+               "Yeah, I Said It",
+               "Desperado",
+               "James Joint",
+               "Needed Me",
+               "Pose [explicit]",
+               "Same OI' Mistakes",
+               "Kiss It Better",
+               "Close to You",
+               "Higher",
+               "Goodnight Gotham",
+               "Woo",
+               "Love on the Brain"
+            ]
+      } ,
+      {
+        "title": "whole lotta red" , 
+        "author": "Playboi Carti" ,
+        "cover": "/img/wlr.png" ,
+        "date": "25/12/2020" ,
+        "tracks": [
+               "Go2DaMoon",
+               "Ten x",
+               "M3thamorphosis",
+               "Punk Monk",
+               "Sky",
+               "Not PLaying",
+               "Sto Breathing",
+               "Vamp Anthem",
+               "JumpOutTheHouse",
+               "On That Time",
+               "Beno!",
+               "Control",
+               "F33I Lik3 Dyin",
+               "Over",
+               "Die4Guy",
+               "ILoveUIHateU",
+               "New Tank",
+               "Meh",
+               "No Sl33p",
+               "King Vamp",
+               "New N3on",
+               "Place",
+               "Slay3r",
+               "Rockstar Made"
+            ]
+      } ,
+      {
+        "title": "HNDRXX" , 
+        "author": "Future" ,
+        "cover": "/img/hndrxx.jpg" ,
+        "date": "24/02/2017" ,
+        "tracks": [
+               "Comin Out Strong",
+               "Selfish",
+               "Sorry",
+               "Lookin Exotic",
+               "Testify",
+               "My Collection",
+               "Fresh Air",
+               "Damage",
+               "Neva Missa Lost",
+               "Turn on Me",
+               "Hallucinating",
+               "Solo",
+               "Keep Quiet",
+               "New Illuminati",
+               "Use Me",
+               "I Thank U",
+               "Incredible"
+            ]
+      } ,
+      {
+        "title": "56 nights" , 
+        "author": "Future" ,
+        "cover": "/img/56nights.jpeg" ,
+        "date": "21/03/2015" ,
+        "tracks": [
+               "Trap Nigs",
+               "Da Fam on da Gram Skit",
+               "Purple Coming In",
+               "56 Nights",
+               "Now",
+               "No Comprade",
+               "March Madness",
+               "Never Gon Lose",
+               "Diamonds From Africa",
+               "Free at Last"
+            ]
+      } ,
 ]
 var playlist = []
