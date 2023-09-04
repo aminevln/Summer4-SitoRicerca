@@ -152,3 +152,4 @@ var albums =
         ]
     }
 ]
+var playlist = []

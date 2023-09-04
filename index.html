@@ -10,6 +10,7 @@
 </head>
 <body onload="start()">
     <main>
+        <header></header>
         <aside>
             <div id="main-title">
                 <h1>Music</h1>
@@ -21,7 +22,33 @@
             <div id="search-results">
 
             </div>
+            <div id="libreria">
+                <h5>Library</h5>
+                <h3>Your playlists</h3>
+                <div id="playlists">
+                    
+                </div>
+            </div>
         </aside>
+        <section>
+            <div id="pl-title">
+                <h1>Create a playlist</h1>
+            </div>
+            <div id="add-pl">
+                <div id="form-pl">
+                    <input type="text" name="" id="su" placeholder="Playlist title">
+                    <textarea name="" id="si" cols="30" rows="10" placeholder="Descrption"></textarea>
+                    <input type="text" name="" id="music_to_add" placeholder="Search music to add">
+                    <div id="preview-add"></div>
+                    <button id="save_pl">done</button>
+                </div>
+                <div id="pl-preview">
+
+                </div>
+            </div>
+            
+
+        </section>   
     </main>
     <script src="database.js"></script>
     <script src="script.js"></script>
