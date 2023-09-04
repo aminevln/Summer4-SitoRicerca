@@ -118,15 +118,42 @@ function showSingle(song){
     section.innerHTML = ""
     let a = 
     `
-    <img src="${song.children[0].src}" style="margin:15px;">
-    <div id="pl-title">
-    <h1>${song.children[1].children[0].textContent.toUpperCase()}</h1>
-    <h3>${song.children[1].children[1].textContent.toUpperCase()}</h3>
-    <button id="rmmm">Add to playlist</button>
+            <div id="preview-add"></div>
+            <img src="${song.children[0].src}" style="margin:15px;">
+            <div id="pl-title">
+            <h1>${song.children[1].children[0].textContent.toUpperCase()}</h1>
+            <h3>${song.children[1].children[1].textContent.toUpperCase()}</h3>
+            <button id="rmmm">Add to playlist</button>
+            <div id="elenco-pl-ex"></div>
     `
     section.innerHTML = a
+    document.getElementById('rmmm').addEventListener('click', function(event){
+        addToPlEx(song.children[1].children[0].textContent)
+    })
 }
-
+function addToPlEx(song){
+    document.getElementById('elenco-pl-ex').innerHTML=""
+    if(playlist.length===0)
+    {
+        let h3 = document.createElement('h3')
+        h3.textContent = "You have no playlists"
+        document.getElementById('elenco-pl-ex').appendChild(h3)
+    }else{
+        for(let i=0; i<playlist.length; i++){
+            let h3 = document.createElement('h3')
+            h3.textContent = playlist[i].title
+            document.getElementById('elenco-pl-ex').appendChild(h3)
+            h3.addEventListener('click', ()=>{
+                for(let j=0; j<playlist.length; j++){
+                    if(playlist[j].title === h3.textContent){
+                        playlist[j].tracks.push(song)
+                        alert('done')
+                    }
+                }
+            })
+        }
+    }
+}
 function start(){
     var inputBox = document.getElementById("search-box");
     inputBox.value = ""
@@ -220,6 +247,7 @@ function showPlaylist(playlist_title){
             <button id="rm">remove</button>
             <button id="rmm">sort</button>
         </div>
+        
     `
     
     section.innerHTML = a
