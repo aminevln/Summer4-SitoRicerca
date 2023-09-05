@@ -19,6 +19,7 @@ body{
     width: 100%;
     height: 100vh;
     background-color: var(--main);
+    overflow: hidden;
 }
 main{
     width: 100%;
@@ -56,6 +57,7 @@ header{
     position: absolute;
     top: 9.3%;
     left: 11%;
+    width: 80%;
 }
 #search-results{
     position: absolute;
@@ -70,7 +72,7 @@ header{
     background-color: var(--main);
     border-radius: 3px;
     border: .1px solid var(--border);
-    width: 210px;
+    width: 100%;
     padding: 4px;
     color: var(--titles);
     padding-left: 25px;
@@ -275,9 +277,9 @@ header>h3{
     font-size: .9rem;
 }
 
-@media screen and (max-width: 1026px) {
+@media screen and (max-width: 786px) {
     aside{
-        height: 20%;
+        height: 15%;
         width: 100%;
         top: 8.5%;
         display: flex;
@@ -287,12 +289,13 @@ header>h3{
     }
     #main-title{
         position: unset;
-        width: 25%;
+        width: 35%;
+        padding: 35px;
     }
     #input-box{
         position: unset;
         width: 25%;
-        
+        padding-top: 35px;
     }
     #search-results{
         position: unset;
@@ -308,4 +311,63 @@ header>h3{
         margin-top: 25%;
         width: 100%;
     }
+    .icon{
+        display: none;
+    }
+    header{
+        display: grid;
+        place-items: center;
+    }
+    #album-completo{
+        display: none;
+    }
+}
+#album-completo{
+    padding: 15px;
+    margin-left: 20px;
+    border-left: .1px solid var(--border);
+    width: 50%;
+}
+#album-completo>h5{
+    color: var(--titles);
+    font-size: 1.3rem;
+}
+#album-completo>h6{
+    color: var(--subtitles);
+    margin-top:10px ;
+    font-size: .9rem;
+}
+#album-completo>h2{
+    color: var(--titles);
+    margin-top:10px ;
+    font-size: 2rem;
+    
+}
+#tot-album{
+    padding: 15px;
+    width: 100%;
+    max-height: 500px ;
+    overflow: scroll;
+}
+#cntr{
+    width: 100%;
+    padding: 2px;
+    border-top: .1px solid var(--border);
+    border-bottom: .1px solid var(--border);
+    height: 60px;
+    display: flex;
+}
+#cntr>img{
+    padding: 5px;
+    border-radius: 2px;
+}
+#cttl{
+    display: flex;
+    align-items: center;
+    justify-content:flex-start;
+}
+#cttl>h4{
+    color: var(--subtitles);
+    font-size: .9rem;
+    padding-left: 10px;
 }

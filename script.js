@@ -102,6 +102,9 @@ function searchTracks(query, flag, queryF) {
                     rs.addEventListener("click", function(event) {
                         addToPl(this);
                     });
+                    cover.addEventListener("click", function(event) {
+                        addToPl(rs);
+                    });
 
                     
                 }
@@ -115,21 +118,70 @@ function searchTracks(query, flag, queryF) {
     
 function showSingle(song){
     let section = document.querySelector('section')
+    let sng, album, data, cov, author
+    let tracks = []
     section.innerHTML = ""
+    for(let i=0; i<albums.length; i++){
+        for(let j=0; j<albums[i].tracks.length; j++){
+            if(albums[i].tracks[j].toLowerCase()===song.children[1].children[0].textContent.toLowerCase()){
+                sng = albums[i].tracks[j]
+                album = albums[i].title
+                data = albums[i].date
+                tracks = albums[i].tracks
+                cov = albums[i].cover
+                author = albums[i].author
+            }
+        }
+    }
     let a = 
     `
-            <div id="preview-add"></div>
-            <img src="${song.children[0].src}" style="margin:15px;">
-            <div id="pl-title">
-            <h1>${song.children[1].children[0].textContent.toUpperCase()}</h1>
-            <h3>${song.children[1].children[1].textContent.toUpperCase()}</h3>
-            <button id="rmmm">Add to playlist</button>
-            <div id="elenco-pl-ex"></div>
+            <div style="width: 100%; display: flex;">
+                <article style:"max-width: 50%;">
+                    <div id="preview-add"></div>
+                    <img src="${cov}" style="margin:15px;">
+                    <div id="pl-title">
+                    <h1>${sng}</h1>
+                    <h3>SONG BY ${author}</h3>
+                    <button id="rmmm">Add to playlist</button>
+                    <div id="elenco-pl-ex"></div>
+                </article>
+                <article id="album-completo">
+                    <h5>ALBUM</h5>
+                    <h6>${data}</h6>
+                    <h2>${album}</h2>
+                    <div id="tot-album">
+                    </div>
+                </article>
+            </div>
+            
     `
     section.innerHTML = a
+    for(let i=0; i<tracks.length; i++){
+        let container = document.createElement('div')
+        container.id = 'cntr'
+        let cover = document.createElement('img')
+        cover.src = cov
+        cover.style.width = "58px"
+        cover.style.height = "58px"
+        container.appendChild(cover)
+        let container_title = document.createElement('div')
+        container_title.id = 'cttl'
+
+        let h1 = document.createElement('h4')
+        h1.textContent = tracks[i]
+        container_title.appendChild(h1)
+        container.appendChild(container_title)
+        document.getElementById('tot-album').appendChild(container)
+        container.addEventListener('click', function(event){
+            showSingle(this)
+        })
+
+
+    }
     document.getElementById('rmmm').addEventListener('click', function(event){
         addToPlEx(song.children[1].children[0].textContent)
     })
+
 }
 function addToPlEx(song){
     document.getElementById('elenco-pl-ex').innerHTML=""
@@ -160,22 +212,41 @@ function start(){
 }
 function checkFocus() {
     var inputBox = document.getElementById("search-box");
+    var elemento = document.getElementById("search-results");
+    var elementor = document.getElementById("preview-add");
+    var inHover = false, inHoverr = false
+    elemento.addEventListener('mouseenter', function() {
+        inHover = true;
+    });
+    
+    elemento.addEventListener('mouseleave', function() {
+        inHover = false;
+    });
+
+    elementor.addEventListener('mouseenter', function() {
+        inHoverr = true;
+    });
+    
+    elementor.addEventListener('mouseleave', function() {
+        inHoverr = false;
+    });
+
     if (document.activeElement === inputBox) {
         
-    } else {
+    } else if(document.activeElement != inputBox && !inHover) {
         var resultsContainer = document.getElementById("search-results");
         resultsContainer.innerHTML = "";
         resultsContainer.style.backgroundColor = "transparent"
     }
     if (document.activeElement === musicToAdd) {
         
-    } else {
+    } else if(document.activeElement != musicToAdd && !inHoverr){
         var resultsContainer = document.getElementById("preview-add");
         resultsContainer.innerHTML = "";
         resultsContainer.style.backgroundColor = "transparent"
     }
 }
-setInterval(checkFocus, 3000);
+setInterval(checkFocus, 1000);
 function checkLibrary(){
     let h = document.getElementById('playlists')
     h.innerHTML=""
